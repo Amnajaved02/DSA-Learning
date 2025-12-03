@@ -28,28 +28,14 @@ class TreeNode(object):
         self.right = right
 
 class Solution(object):
-
-    def __init__(self):
-        self.preorder_traversal_output = []
-
     def preorderTraversal(self, root):
         """
         :type root: Optional[TreeNode]
         :rtype: List[int]
         """
-
         if not root:
-            return self.preorder_traversal_output
-
-        self.preorder_traversal_output.append(root.val)
-
-        if root.left:
-            self.preorderTraversal(root.left)
-
-        if root.right:
-            self.preorderTraversal(root.right) 
-
-        return self.preorder_traversal_output    
-
+            return []
         
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+    
         
